@@ -8,6 +8,9 @@ var user = require('../controllers/users');
 //   res.send('respond with a resource');
 // });
 
-router.get('/', user.getAll);
+router.get('/', user.findAll);
+router.get('/:id', user.getById)
+router.post('/', user.create);
+//router.get('/seq/', user.findAll);
 
 module.exports = router;
