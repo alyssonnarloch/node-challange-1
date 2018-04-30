@@ -1,6 +1,7 @@
 var connection = require('../database/connection');
 
 const UserSeq = require('../models/user');
+const Type = require('../models/type');
 
 var TABLE = 'users';
 
@@ -49,7 +50,7 @@ var User = {
     });
   },
   findAll: function (req, res) {
-    UserSeq.findAll().then(users => {
+    UserSeq.findAll({ include: [ Type ] }).then(users => {
       res.json(JSON.parse(JSON.stringify(users)));
     });
 
